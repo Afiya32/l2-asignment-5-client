@@ -1,0 +1,185 @@
+import { NavLink, Outlet } from "react-router-dom";
+import { useEffect, useState } from "react";
+import logo from "../assets/logo.png";
+
+
+const MainLayOut = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  return (
+    <div className="drawer">
+      <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
+      <div className="drawer-content flex flex-col">
+        {/* Navbar */}
+        <div
+          className={`navbar sticky top-0 z-50 w-full transition-all duration-300 ease-in-out ${
+            isScrolled
+              ? "bg-transparent backdrop-blur-md"
+              : "bg-slate-500 shadow-md"
+          }`}
+        >
+          <div className="flex-none lg:hidden">
+            <label
+              htmlFor="my-drawer-3"
+              aria-label="open sidebar"
+              className="btn btn-square btn-ghost"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                className="inline-block h-6 w-6 stroke-current"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </label>
+          </div>
+          <div className="mx-2 flex-1 px-2">
+            <img className="size-12" src={logo} alt="logo" />
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent">
+              ROOMY
+            </h1>
+          </div>
+          <div className="hidden flex-none lg:block">
+            <ul className="menu menu-horizontal">
+              {/* Navbar menu content here */}
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending
+                    ? "pending"
+                    : isActive
+                    ? "justify-center items-center text-xl font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent"
+                    : "font-bold p-2"
+                }
+                to="/"
+              >
+                Home
+              </NavLink>
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending
+                    ? "pending"
+                    : isActive
+                    ? "text-xl font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent"
+                    : "font-bold p-2"
+                }
+                to="/about"
+              >
+                About Us
+              </NavLink>
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending
+                    ? "pending"
+                    : isActive
+                    ? "text-xl font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent"
+                    : "font-bold p-2"
+                }
+                to="/contact"
+              >
+                Contact Us
+              </NavLink>
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending
+                    ? "pending"
+                    : isActive
+                    ? "text-xl font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent"
+                    : "font-bold p-2"
+                }
+                to="/room"
+              >
+                Meeting Rooms
+              </NavLink>
+              <button className="btn btn-outline">Sign up</button>
+            </ul>
+          </div>
+        </div>
+        {/* Page content here */}
+        <Outlet />
+      </div>
+      <div className="drawer-side">
+        <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
+
+        <ul className="menu bg-base-200 min-h-full w-80 p-4 text-center mt-5">
+          <li>
+            <div className="mx-2 ml-8 flex-1 px-2 size-60"></div>
+          </li>
+          {/* Sidebar content here */}
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "pending"
+                : isActive
+                ? "text-3xl font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent"
+                : "font-bold p-2"
+            }
+            to="/"
+          >
+            Home
+          </NavLink>
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "pending"
+                : isActive
+                ? "text-3xl font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent"
+                : "font-bold p-2"
+            }
+            to="/about"
+          >
+            About Us
+          </NavLink>
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "pending"
+                : isActive
+                ? "text-3xl font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent"
+                : "font-bold p-2"
+            }
+            to="/contact"
+          >
+            Contact Us
+          </NavLink>
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "pending"
+                : isActive
+                ? "text-3xl font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent"
+                : "font-bold p-2"
+            }
+            to="/room"
+          >
+            Meeting Rooms
+          </NavLink>
+          <button className="btn btn-outline">Sign up</button>
+        </ul>
+      </div>
+     
+    </div>
+  );
+};
+
+export default MainLayOut;
