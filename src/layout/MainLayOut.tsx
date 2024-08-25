@@ -1,10 +1,17 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 import logo from "../assets/logo.png";
-
+import { useAuth } from "../redux/hooks/useAuth";
+import { useLogout } from "../redux/hooks/useLogOut";
+import { FaPerson } from "react-icons/fa6";
 
 const MainLayOut = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { user } = useAuth();
+  const logout = useLogout();
+  const handLogout = () => {
+    logout;
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -111,7 +118,26 @@ const MainLayOut = () => {
               >
                 Meeting Rooms
               </NavLink>
-              <button className="btn btn-outline">Sign up</button>
+              {user?.name ? (
+                <div className="dropdown dropdown-end">
+                  <div tabIndex={0} role="button" className="btn m-1">
+                    <FaPerson />
+                  </div>
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+                  >
+                    {user?.role === "user" ? (
+                      <NavLink to="/my-booking">My booking</NavLink>
+                    ) : (
+                      <NavLink to="/dashboard">Dashboard</NavLink>
+                    )}
+                    <button onClick={handLogout}>log out</button>
+                  </ul>
+                </div>
+              ) : (
+                <NavLink to='/register' className="btn btn-outline">Sign up</NavLink>
+              )}
             </ul>
           </div>
         </div>
@@ -119,7 +145,11 @@ const MainLayOut = () => {
         <Outlet />
       </div>
       <div className="drawer-side">
-        <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
+        <label
+          htmlFor="my-drawer-3"
+          aria-label="close sidebar"
+          className="drawer-overlay"
+        ></label>
 
         <ul className="menu bg-base-200 min-h-full w-80 p-4 text-center mt-5">
           <li>
@@ -174,10 +204,28 @@ const MainLayOut = () => {
           >
             Meeting Rooms
           </NavLink>
-          <button className="btn btn-outline">Sign up</button>
+          {user?.name ? (
+            <div className="dropdown dropdown-end">
+              <div tabIndex={0} role="button" className="btn m-1">
+                <FaPerson />
+              </div>
+              <ul
+                tabIndex={0}
+                className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+              >
+                {user?.role === "user" ? (
+                  <NavLink to="/my-booking">My booking</NavLink>
+                ) : (
+                  <NavLink to="/dashboard">Dashboard</NavLink>
+                )}
+                <button onClick={handLogout}>log out</button>
+              </ul>
+            </div>
+          ) : (
+            <NavLink to='/register' className="btn btn-outline">Sign up</NavLink>
+          )}
         </ul>
       </div>
-     
     </div>
   );
 };

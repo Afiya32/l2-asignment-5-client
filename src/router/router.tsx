@@ -5,6 +5,7 @@ import Contact from "../pages/Contact";
 import About from "../pages/About";
 import RoomPage from "../pages/RoomPage";
 import ErrorPage from "../pages/ErrorPage";
+import AuthPage from "../pages/AuthPage";
 
 export const router= createBrowserRouter([
     {
@@ -29,5 +30,8 @@ export const router= createBrowserRouter([
                 element:<RoomPage/>
             }
         ]
+    },{
+        path:'/register',
+        element:<AuthPage/>
     }
 ])
