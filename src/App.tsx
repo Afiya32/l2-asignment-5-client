@@ -3,22 +3,24 @@ import ChooseUs from "./components/Choose"
 import Footer from "./components/Footer"
 import HowItWorks from "./components/HowItWork"
 import ServiceAdvertisement from "./components/Service"
+import ServiceRoomCard from "./components/ServiceRoomCard"
 import CustomerTestimonials from "./components/TestTermoninal"
 import { useAuth } from "./redux/hooks/useAuth"
-// import { useLogout } from "./redux/hooks/useLogOut"
+
 
 
 
 function App() {
   const { user } = useAuth();
-  // const logout = useLogout();
+  
 
   return (
     <>
-     <div className=" w-full mt-1">
+     <div className=" w-full mt-1 bg-stone-400">
     
      <Carosel/>
      <ServiceAdvertisement/>
+     <ServiceRoomCard/>
      <ChooseUs/>
      <HowItWorks/>
      <CustomerTestimonials/>

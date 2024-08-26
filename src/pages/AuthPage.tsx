@@ -91,7 +91,7 @@ const AuthPage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-stone-300">
       <div className="bg-white p-8 rounded-lg shadow-lg w-96">
         <div className="flex justify-between items-center mb-6">
           <div className="mx-2 flex px-2">

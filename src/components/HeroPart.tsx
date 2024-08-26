@@ -20,7 +20,7 @@ const HeroPart: React.FC<HeroPartProps> = ({ image }) => {
           <p className="mb-5">
             Efficient, hassle-free room booking for all your meeting needs.
           </p>
-          <Link to="/room" className="btn btn-outline text-3xl font-bold hover:bg-gradient-to-r bg-gradient-to-r hover:from-red-500 from-purple-400 hover:via-amber-500 via-blue-500 hover:to-cyan-400 to-green-500 hover:bg-clip-text bg-clip-text hover:text-transparent text-transparent bg-blue-700">Book Now</Link>
+          <Link to="/rooms" className="btn btn-outline text-3xl font-bold hover:bg-gradient-to-r bg-gradient-to-r hover:from-red-500 from-purple-400 hover:via-amber-500 via-blue-500 hover:to-cyan-400 to-green-500 hover:bg-clip-text bg-clip-text hover:text-transparent text-transparent bg-blue-700">Book Now</Link>
         </div>
       </div>
     </div>

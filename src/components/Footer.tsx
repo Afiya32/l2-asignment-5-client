@@ -1,4 +1,4 @@
-import React from "react";
+
 import { FaAddressCard, FaFacebook, FaInstagram, FaLinkedin, FaPhoneAlt, FaTwitter } from "react-icons/fa";
 import { MdMarkEmailUnread } from "react-icons/md";
 
@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-300 py-8">
+    <footer className="bg-slate-300 py-8  rounded-t-2xl">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
           {/* Contact Information */}

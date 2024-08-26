@@ -114,13 +114,14 @@ const MainLayOut = () => {
                     ? "text-xl font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent"
                     : "font-bold p-2"
                 }
-                to="/room"
+                to="/rooms"
               >
                 Meeting Rooms
               </NavLink>
               {user?.name ? (
-                <div className="dropdown dropdown-end">
-                  <div tabIndex={0} role="button" className="btn m-1">
+               
+                 <div className="dropdown dropdown-end items-center text-center">
+                  <div tabIndex={0} role="button" className="btn m-1 rounded-full">
                     <FaPerson />
                   </div>
                   <ul
@@ -128,15 +129,16 @@ const MainLayOut = () => {
                     className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
                   >
                     {user?.role === "user" ? (
-                      <NavLink to="/my-booking">My booking</NavLink>
+                      <NavLink to="/my-booking" className="btn btn-outline bg-green-300">My booking</NavLink>
                     ) : (
-                      <NavLink to="/dashboard">Dashboard</NavLink>
+                      <NavLink className="btn btn-outline bg-green-300" to="/dashboard">Dashboard</NavLink>
                     )}
-                    <button onClick={handLogout}>log out</button>
+                    <button className="btn btn-error mt-2 btn-outline" onClick={handLogout}>log out</button>
                   </ul>
                 </div>
+             
               ) : (
-                <NavLink to='/register' className="btn btn-outline">Sign up</NavLink>
+                <NavLink to='/register' className="btn btn-outline btn-primary mt-2">Sign up</NavLink>
               )}
             </ul>
           </div>
@@ -200,25 +202,25 @@ const MainLayOut = () => {
                 ? "text-3xl font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent"
                 : "font-bold p-2"
             }
-            to="/room"
+            to="/rooms"
           >
             Meeting Rooms
           </NavLink>
           {user?.name ? (
             <div className="dropdown dropdown-end">
-              <div tabIndex={0} role="button" className="btn m-1">
+              <div tabIndex={0} role="button" className="btn m-1 rounded-full">
                 <FaPerson />
               </div>
               <ul
                 tabIndex={0}
                 className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
               >
-                {user?.role === "user" ? (
-                  <NavLink to="/my-booking">My booking</NavLink>
+                {user?.role === "admin" ? (
+                  <NavLink className="btn btn-outline bg-green-300" to="/dashboard">Dashboard</NavLink>
                 ) : (
-                  <NavLink to="/dashboard">Dashboard</NavLink>
-                )}
-                <button onClick={handLogout}>log out</button>
+                      <NavLink to="/my-booking" className="btn btn-outline bg-green-300">My booking</NavLink>
+                    )}
+                    <button className="btn btn-error mt-2 btn-outline" onClick={handLogout}>log out</button>
               </ul>
             </div>
           ) : (

@@ -6,6 +6,7 @@ import About from "../pages/About";
 import RoomPage from "../pages/RoomPage";
 import ErrorPage from "../pages/ErrorPage";
 import AuthPage from "../pages/AuthPage";
+import RoomDetailsPage from "../pages/RoomDetailsPage";
 
 export const router= createBrowserRouter([
     {
@@ -25,8 +26,11 @@ export const router= createBrowserRouter([
                 path:'about',
                 element:<About/>
             },
+            {path:'rooms/:roomId',
+                element:<RoomDetailsPage/>
+            },
             {
-                path:'room',
+                path:'rooms',
                 element:<RoomPage/>
             }
         ]

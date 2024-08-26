@@ -9,11 +9,12 @@ const Carosel: React.FC = () => {
       <div className="min-w-min max-w-7xl mx-auto">
         <Carousel
           autoPlay
+          showThumbs={false}
           infiniteLoop
           className="text-center overflow-hidden grid justify-center items-center"
         >
           <div>
-            <HeroPart image={img1} />
+            <HeroPart image={img1}  />
           </div>
           <div>
             <HeroPart image={img2} />

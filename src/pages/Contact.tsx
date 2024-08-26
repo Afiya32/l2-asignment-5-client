@@ -4,7 +4,7 @@ import contactAnimation from '../assets/animation/searchAnimation.json'
 
 const Contact = () => {
   return (
-    <div>
+    <div className="bg-stone-400">
        <div className="px-4 py-8 mx-auto max-w-7xl">
       {/* Contact Information Section */}
       <section className="mb-12 text-center">
