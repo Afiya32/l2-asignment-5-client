@@ -128,10 +128,11 @@ const MainLayOut = () => {
                     tabIndex={0}
                     className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
                   >
-                    {user?.role === "user" ? (
-                      <NavLink to="/my-booking" className="btn btn-outline bg-green-300">My booking</NavLink>
+                    {user?.role === "admin" ? (
+                      <NavLink className="btn btn-outline bg-green-300" to="/admin-dashboard">Dashboard</NavLink>
+                     
                     ) : (
-                      <NavLink className="btn btn-outline bg-green-300" to="/dashboard">Dashboard</NavLink>
+                      <NavLink to="/user-dashboard/my-booking" className="btn btn-outline bg-green-300">My booking</NavLink>
                     )}
                     <button className="btn btn-error mt-2 btn-outline" onClick={handLogout}>log out</button>
                   </ul>
@@ -216,9 +217,9 @@ const MainLayOut = () => {
                 className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
               >
                 {user?.role === "admin" ? (
-                  <NavLink className="btn btn-outline bg-green-300" to="/dashboard">Dashboard</NavLink>
+                  <NavLink className="btn btn-outline bg-green-300" to="/admin-dashboard">Dashboard</NavLink>
                 ) : (
-                      <NavLink to="/my-booking" className="btn btn-outline bg-green-300">My booking</NavLink>
+                      <NavLink to="/user-dashboard/my-booking" className="btn btn-outline bg-green-300">My booking</NavLink>
                     )}
                     <button className="btn btn-error mt-2 btn-outline" onClick={handLogout}>log out</button>
               </ul>

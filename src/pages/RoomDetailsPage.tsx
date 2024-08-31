@@ -9,8 +9,8 @@ import demoImage4 from '../assets/hero2.jpg'
 import Loader from '../components/Loader';
 import Footer from '../components/Footer';
 const RoomDetailsPage = () => {
-    const { roomId } = useParams<{ roomId: string }>(); // Get the room ID from the URL
-    const [room, setRoom] = useState<any>(null); // Change the type as needed
+    const { roomId } = useParams<{ roomId: string }>(); 
+    const [room, setRoom] = useState<any>(null); 
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     useEffect(() => {
@@ -30,7 +30,7 @@ const RoomDetailsPage = () => {
         };
         fetchRoomDetails();
       }, [roomId]);
-      console.log(room)
+     
     
       if (loading) return <Loader/>;
       if (error) return <div>Error loading room details: {error}</div>;
@@ -63,7 +63,7 @@ const RoomDetailsPage = () => {
       {/* Book Now Button */}
     <div className='flex justify-center items-center gap-5'>
     <div className="text-center mt-8 mb-10">
-        <Link to="/booking" className="btn  text-3xl font-bold hover:bg-gradient-to-r bg-gradient-to-r hover:from-red-900 from-purple-900 hover:via-amber-900 via-blue-900 hover:to-lime-900 to-green-900 hover:bg-clip-text bg-clip-text hover:text-transparent text-transparent bg-blue-700">Book Now</Link>
+        <Link to={`/booking/${roomId}`} className="btn  text-3xl font-bold hover:bg-gradient-to-r bg-gradient-to-r hover:from-red-900 from-purple-900 hover:via-amber-900 via-blue-900 hover:to-lime-900 to-green-900 hover:bg-clip-text bg-clip-text hover:text-transparent text-transparent bg-blue-700">Book Now</Link>
       </div>
       <div className="text-center mt-8 mb-10" >
       <Link to="/rooms" className="btn  text-3xl font-bold hover:bg-gradient-to-r bg-gradient-to-r hover:from-red-900 from-purple-900 hover:via-amber-900 via-blue-900 hover:to-cyan-900 to-green-900 hover:bg-clip-text bg-clip-text hover:text-transparent text-transparent bg-blue-700">Cancel</Link>

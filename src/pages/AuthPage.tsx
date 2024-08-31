@@ -23,7 +23,7 @@ const AuthPage = () => {
     e.preventDefault();
     const formData = new FormData(e.target as HTMLFormElement);
     const userData = Object.fromEntries(formData.entries());
-    console.log('User Data:', userData);
+  
 
     try {
       const result = await signUpUser(userData).unwrap();
