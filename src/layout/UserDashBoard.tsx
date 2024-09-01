@@ -65,6 +65,15 @@ const UserDashBoard = () => {
 
       {/* Icon Button for large devices */}
       <div className="hidden md:flex lg:flex items-center justify-end p-4  text-black">
+      <div className='mr-[460px] flex justify-center items-center gap-1'>
+        <div className='size-20'>
+        <img src={logo} alt="" />
+        </div>
+        <div className='text-2xl  font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent'>
+          <h1>ROOMY</h1>
+        </div>
+       </div>
+        
         <button
          >
             <div className="drawer">

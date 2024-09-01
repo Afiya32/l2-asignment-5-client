@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import logo from "../assets/logo.png";
 import { useAuth } from "../redux/hooks/useAuth";
@@ -8,9 +8,12 @@ import { FaPerson } from "react-icons/fa6";
 const MainLayOut = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { user } = useAuth();
-  const logout = useLogout();
+  const { handleLogout } = useLogout();
+  const navigate=useNavigate()
   const handLogout = () => {
-    logout;
+    handleLogout();
+   
+    navigate('/')
   };
 
   useEffect(() => {

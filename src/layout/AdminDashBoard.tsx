@@ -69,7 +69,16 @@ const AdminDashBoard = () => {
       </nav>
 
       {/* Icon Button for large devices */}
-      <div className="hidden md:flex lg:flex items-center justify-end p-4  text-black">
+      <div className="hidden md:flex lg:flex items-center justify-end p-4 gap-3  text-black">
+       <div className='mr-[460px] flex justify-center items-center gap-1'>
+        <div className='size-20'>
+        <img src={logo} alt="" />
+        </div>
+        <div className='text-2xl  font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent'>
+          <h1>ROOMY</h1>
+        </div>
+       </div>
+       
         <button
          >
             <div className="drawer">
@@ -102,7 +111,7 @@ const AdminDashBoard = () => {
                     ? "justify-center items-center text-xl font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent"
                     : "font-bold p-2"
                 }
-                to="/admin-dashboard/room"
+                to="/admin-dashboard"
               >
                 Room Management
               </NavLink>
@@ -142,7 +151,7 @@ const AdminDashBoard = () => {
       
       
       <main className="flex-grow p-4 ">
-       <div className='flex justify-center items-center h-[75vh]'> <Outlet /></div>
+       <div className='flex justify-center  '> <Outlet /></div>
        <Footer/>
       </main>
     </div>
