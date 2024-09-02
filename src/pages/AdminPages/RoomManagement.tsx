@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import Loader from '../../components/Loader';
 
 // Define TypeScript types for Room data
 interface Room {
@@ -138,7 +139,7 @@ const RoomManagement: React.FC = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div><Loader/></div>;
   }
 
   return (

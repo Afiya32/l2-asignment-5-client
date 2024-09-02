@@ -65,8 +65,11 @@ export const router= createBrowserRouter([
         path:'/user-dashboard',
         element:<UserDashBoard/>,
         children:[{
-            index:true,
+            path:'checkout',
             element:<CheckOutPage/>
+        },{
+            index:true,
+            element:<MyBooking/>
         },{
             path:'my-booking',
             element:<MyBooking/>
@@ -79,11 +82,13 @@ export const router= createBrowserRouter([
             index:true,
             element:<RoomManagement/>,
 
+        },{ path:'room-management',
+            element:<RoomManagement/>,
         },{
-            path:'slot',
+            path:'slot-management',
             element:<SlotManagement/>
         },{
-            path:'booking',
+            path:'booking-management',
             element:<BookingManagement/>
         }]
     }

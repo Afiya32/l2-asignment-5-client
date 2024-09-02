@@ -53,7 +53,7 @@ const UserDashBoard = () => {
                     ? "justify-center items-center text-xl font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent"
                     : "font-bold p-2"
                 }
-                to="/user-dashboard"
+                to="/user-dashboard/checkout"
               >
                 Check-Out
               </NavLink>
@@ -118,7 +118,7 @@ const UserDashBoard = () => {
                     ? "justify-center items-center text-xl font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent"
                     : "font-bold p-2"
                 }
-                to="/user-dashboard"
+                to="/user-dashboard/checkout"
               >
                 Check-Out
               </NavLink>

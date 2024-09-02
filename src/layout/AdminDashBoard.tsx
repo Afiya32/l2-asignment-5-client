@@ -1,8 +1,19 @@
-import {  NavLink, Outlet } from 'react-router-dom';
+import {  NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { CiMenuBurger } from 'react-icons/ci';
 import logo from "../assets/logo.png"
 import Footer from '../components/Footer';
+import { useLogout } from '../redux/hooks/useLogOut';
+
+
 const AdminDashBoard = () => {
+  const { handleLogout } = useLogout();
+  const navigate=useNavigate()
+  const handLogout = () => {
+    handleLogout();
+   
+    navigate('/')
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Navbar for mobile devices */}
@@ -19,7 +30,7 @@ const AdminDashBoard = () => {
                   isPending
                     ? "pending"
                     : isActive
-                    ? "justify-center items-center text-xl font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent"
+                    ? "justify-center items-center text-base font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent"
                     : "font-bold p-2"
                 }
                 to="/"
@@ -31,10 +42,10 @@ const AdminDashBoard = () => {
                   isPending
                     ? "pending"
                     : isActive
-                    ? "justify-center items-center text-xl font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent"
+                    ? "justify-center items-center text-base font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent"
                     : "font-bold p-2"
                 }
-                to="/admin-dashboard/room"
+                to="/admin-dashboard/room-management"
               >
                 Room Management
               </NavLink>
@@ -43,10 +54,10 @@ const AdminDashBoard = () => {
                   isPending
                     ? "pending"
                     : isActive
-                    ? "justify-center items-center text-xl font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent"
+                    ? "justify-center items-center text-base font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent"
                     : "font-bold p-2"
                 }
-                to="/admin-dashboard/slot"
+                to="/admin-dashboard/slot-management"
               >
                 Slot Management
               </NavLink>
@@ -55,15 +66,17 @@ const AdminDashBoard = () => {
                   isPending
                     ? "pending"
                     : isActive
-                    ? "justify-center items-center text-xl font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent"
+                    ? "justify-center items-center text-base font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent"
                     : "font-bold p-2"
                 }
-                to="/admin-dashboard/booking"
+                to="/admin-dashboard/booking-management"
               >
                 Booking Management
               </NavLink>
+      
+         
           
-           
+            
           </div>
         </div>
       </nav>
@@ -111,7 +124,7 @@ const AdminDashBoard = () => {
                     ? "justify-center items-center text-xl font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent"
                     : "font-bold p-2"
                 }
-                to="/admin-dashboard"
+                to="/admin-dashboard/room-management"
               >
                 Room Management
               </NavLink>
@@ -123,7 +136,7 @@ const AdminDashBoard = () => {
                     ? "justify-center items-center text-xl font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent"
                     : "font-bold p-2"
                 }
-                to="/admin-dashboard/slot"
+                to="/admin-dashboard/slot-management"
               >
                 Slot Management
               </NavLink>
@@ -135,10 +148,13 @@ const AdminDashBoard = () => {
                     ? "justify-center items-center text-xl font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent"
                     : "font-bold p-2"
                 }
-                to="/admin-dashboard/booking"
+                to="/admin-dashboard/booking-management"
               >
                 Booking Management
               </NavLink>
+              <div>
+              <button className="btn btn-error mt-2 btn-outline" onClick={handLogout}>log out</button>
+              </div>
           
     </ul>
   </div>
